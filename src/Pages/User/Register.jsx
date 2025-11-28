@@ -4,7 +4,9 @@ const Register = () => {
   return (
     <div className="login-page">
       <div className="bg-[#00D09E] pt-[60px] pb-[130px]">
-        <h2 className="text-3xl text-center text-white font-bold">Create Account</h2>
+        <h2 className="text-3xl text-center text-white font-bold">
+          Create Account
+        </h2>
       </div>
       <div className="login-form-area">
         <div>
@@ -24,8 +26,11 @@ const Register = () => {
               <button type="submit">Sign Up</button>
             </div>
           </form>
-          <p className="pt-4">
-            Already have an account? <Link to="/login">Login</Link>
+          <p className="pt-4 max-w-[500px] mx-auto">
+            Already have an account?{" "}
+            <Link to="/login" className="underline">
+              Login
+            </Link>
           </p>
         </div>
         <div className="divider my-[20px] max-w-[500px] mx-auto">OR</div>
