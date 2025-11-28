@@ -1,15 +1,15 @@
 import { Link } from "react-router";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="login-page">
       <div className="bg-[#00D09E] pt-[60px] pb-[130px]">
-        <h2 className="text-3xl text-center text-white font-bold">Welcome Back!</h2>
+        <h2 className="text-3xl text-center text-white font-bold">Create Account</h2>
       </div>
       <div className="login-form-area">
         <div>
           <div className="form-header">
-            <h2>Login with Email</h2>
+            <h2>Sign up with Email</h2>
           </div>
           <form action="">
             <div className="single-input">
@@ -21,10 +21,12 @@ const Login = () => {
               <input type="password" placeholder="Enter your password" />
             </div>
             <div className="submit-button">
-              <button type="submit">Login</button>
+              <button type="submit">Sign Up</button>
             </div>
           </form>
-          <p className="pt-4">Don’t have an account? <Link to="/register">Sign Up</Link></p>
+          <p className="pt-4">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
         </div>
         <div className="divider my-[20px] max-w-[500px] mx-auto">OR</div>
         <div className="social-login">
@@ -57,7 +59,7 @@ const Login = () => {
                 ></path>
               </g>
             </svg>
-            Login with Google
+            Sign Up with Google
           </button>
           {/* Facebook */}
           <button className="btn bg-[#1A77F2] text-white border-[#005fd8]">
@@ -73,7 +75,7 @@ const Login = () => {
                 d="M8 12h5V8c0-6 4-7 11-6v5c-4 0-5 0-5 3v2h5l-1 6h-4v12h-6V18H8z"
               ></path>
             </svg>
-            Login with Facebook
+            Sign Up with Facebook
           </button>
           {/* X */}
           <button className="btn bg-black text-white border-black">
@@ -89,11 +91,11 @@ const Login = () => {
                 d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"
               />
             </svg>
-            Login with X
+            Sign Up with X
           </button>
         </div>
       </div>
     </div>
   );
 };
-export default Login;
+export default Register;
