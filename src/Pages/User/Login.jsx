@@ -1,7 +1,7 @@
 const Login = () => {
   return (
     <div className="login-page">
-      <div className="bg-[#00D09E] pt-[100px] pb-[150px]">
+      <div className="bg-[#00D09E] pt-[60px] pb-[130px]">
         <h2 className="text-3xl text-center text-white font-bold">Welcome</h2>
       </div>
       <div className="login-form-area">
@@ -23,7 +23,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="divider my-[50px] max-w-[500px] mx-auto">OR</div>
+        <div className="divider my-[20px] max-w-[500px] mx-auto">OR</div>
         <div className="social-login">
           {/* Google */}
           <button className="btn bg-white text-black border-[#e5e5e5]">
