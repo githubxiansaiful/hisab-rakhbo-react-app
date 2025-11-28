@@ -1,19 +1,24 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { Link } from "react-router";
 import { auth } from "../../Firebase/Firebase";
 import { useState } from "react";
 
 const Login = () => {
   // Set login loading state
-  const [loading, setLoading] = useState(false);
+  const [loadingProvider, setLoadingProvider] = useState(null);
 
   // Signin method providers
   const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   // Sign in with Google function here
   const handleGoogleSignIn = () => {
     console.log("Google Sign In clicked");
-    setLoading(true);
+    setLoadingProvider("google");
 
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -23,8 +28,24 @@ const Login = () => {
         console.log("Error: ", error);
       })
       .finally(() => {
-      setLoading(false);
-    });
+        setLoadingProvider(null);
+      });
+  };
+
+  // Sing in with Facebook function here
+  const handleFacebookSignIn = () => {
+    console.log("Facebook Sign In clicked");
+    setLoadingProvider("facebook");
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      })
+      .finally(() => {
+        setLoadingProvider(null);
+      });
   };
 
   return (
@@ -64,9 +85,10 @@ const Login = () => {
           {/* Google */}
           <button
             onClick={handleGoogleSignIn}
+            disabled={loadingProvider !== null}
             className="btn bg-white text-black border-[#e5e5e5]"
           >
-            {loading ? (
+            {loadingProvider === "google" ? (
               <>
                 <span className="loading loading-spinner"></span>
                 loading
@@ -105,20 +127,33 @@ const Login = () => {
             )}
           </button>
           {/* Facebook */}
-          <button className="btn bg-[#1A77F2] text-white border-[#005fd8]">
-            <svg
-              aria-label="Facebook logo"
-              width="16"
-              height="16"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-            >
-              <path
-                fill="white"
-                d="M8 12h5V8c0-6 4-7 11-6v5c-4 0-5 0-5 3v2h5l-1 6h-4v12h-6V18H8z"
-              ></path>
-            </svg>
-            Login with Facebook
+          <button
+            onClick={handleFacebookSignIn}
+            disabled={loadingProvider !== null}
+            className="btn bg-[#1A77F2] text-white border-[#005fd8]"
+          >
+            {loadingProvider === "facebook" ? (
+              <>
+                <span className="loading loading-spinner"></span>
+                loading
+              </>
+            ) : (
+              <>
+                <svg
+                  aria-label="Facebook logo"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    fill="white"
+                    d="M8 12h5V8c0-6 4-7 11-6v5c-4 0-5 0-5 3v2h5l-1 6h-4v12h-6V18H8z"
+                  ></path>
+                </svg>
+                Login with Facebook
+              </>
+            )}
           </button>
           {/* X */}
           <button className="btn bg-black text-white border-black">
