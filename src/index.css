@@ -65,5 +65,12 @@ body {
     max-width: 500px;
     margin:0 auto;
     display: grid;
-    gap: 15px;
+    gap: 20px;
+}
+.social-login button {
+    font-size: 16px;
+}
+.login-page {
+    height: 100vh;
+    background: #fff;
 }
