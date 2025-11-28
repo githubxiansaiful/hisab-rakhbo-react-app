@@ -2,9 +2,20 @@
 @plugin "daisyui";
 
 html {
-    background-color: #F1FFF3;
+  background-color: #f1fff3;
 }
 body {
-    max-width: 767px;
-    margin: 0 auto;
+  max-width: 767px;
+  margin: 0 auto;
+}
+.login-form-area {
+  background: #fff;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  margin-top: -50px;
 }

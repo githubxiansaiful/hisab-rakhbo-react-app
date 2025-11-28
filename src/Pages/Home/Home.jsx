@@ -1,4 +1,11 @@
+import { Link } from "react-router";
+
 const Home = () => {
-  return <div>This is home page</div>;
+  return (
+    <div>
+      <p>Home</p>
+      <Link to="/login">Go to Login</Link>
+    </div>
+  );
 };
 export default Home;
